@@ -1,0 +1,63 @@
+@mixin light-theme {
+    --clr-bg: snow; 
+    --clr-fg:  black;
+    --clr-ac:  crimson; 
+}
+
+@mixin dark-theme {
+    --clr-bg: #222222; 
+    --clr-fg:  snow;
+    --clr-ac:  crimson; 
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        @include light-theme;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        @include dark-theme;
+    }
+}
+
+.dark-mode-buttons {
+    position: absolute;
+
+    top: 1em;
+    right: 1em;
+}
+
+.dark-mode-button {
+    border: none;
+    background-color: transparent;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+body:not(.dark-mode) {
+    @include light-theme;
+
+    #dark-mode-on {
+        display: inline;
+    }
+
+    #dark-mode-off {
+        display: none;
+    }
+}
+
+body.dark-mode {
+    @include dark-theme;
+
+    #dark-mode-on {
+        display: none;
+    }
+
+    #dark-mode-off {
+        display: inline;
+    }
+}

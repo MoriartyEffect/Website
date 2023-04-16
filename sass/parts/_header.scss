@@ -1,0 +1,50 @@
+header {
+    display: block;
+    padding: 1rem 0rem;
+    margin-bottom: 1rem;
+
+    .main {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    a::before{
+        content: "[";
+    }
+
+    a::after{
+        content: "]";
+    }
+    
+    .nav {
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-item {
+        margin: 0rem 0.2rem;
+    }
+
+}
+
+.social img {
+    width: 2rem;
+}
+
+@media (min-width: 480px) {
+    header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .main,
+        .nav {
+            margin: 0;
+        }
+
+        .nav-item {
+            margin-left: 0.2rem;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+base_url = "https://moriartyeffect.pages.dev"
+title = "Moriarty Effect"
+description = "Existentialism of a linux user"
+default_language = "en"
+output_dir = "public"
+compile_sass = true
+generate_feed = true
+feed_filename = "atom.xml"
+build_search_index = false
+
+taxonomies = [
+    { name = "tags", paginate_by = 20 },
+]
+
+[markdown]
+highlight_code = true
+highlight_theme = "ayu-dark"
+render_emoji = true
+external_links_target_blank = true
+
+[extra]
+menu = [
+    { name = "blog", url = "/blog" },
+    { name = "tags", url = "/tags" },
+    { name = "about", url = "/about" },
+]
+
+socials = [
+    { name = "github", url = "https://github.com/MoriartyEffect", icon = "github" },
+    { name = "gitlab", url = "https://gitlab.com/MoriartyEffect", icon = "gitlab" },
+    { name = "rss", url = "/atom.xml", icon = "rss" },
+]

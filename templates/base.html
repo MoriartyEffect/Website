@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ get_url(path='main.css') }}">
+
+    {% if page.title %}
+    {% set title = page.title %}
+    {% elif section.title %}
+    {% set title = section.title %}
+    {% elif config.title %}
+    {% set title = config.title %}
+    {% endif %}
+
+    {% if page.description %}
+    {% set description = page.description | truncate(length=150) %}
+    {% elif section.description %}
+    {% set description = section.description | truncate(length=150) %}
+    {% elif config.description %}
+    {% set description = config.description | truncate(length=150) %}
+    {% endif %}
+
+    <link rel="alternate" type="application/atom+xml" title="RSS" href="{{ get_url(path='atom.xml', trailing_slash=false) }}">
+    {% if title %}<title>{{ title }}</title>{% endif %}
+</head>
+<bodyx>
+    <div class="container">
+        <div class="dark-mode-buttons">
+            <button class="dark-mode-button" id="dark-mode-on">
+                <img src="{{ get_url(path='social_icons/moon.svg') }}" width="24" height="24" alt="Dark mode" aria-label="dark mode toggle" title="Dark mode">
+            </button> 
+            <button class="dark-mode-button" id="dark-mode-off">
+                <img src="{{ get_url(path='social_icons/sun.svg') }}" width="24" height="24" alt="Light mode" aria-label="light mode toggle" title="Light mode">
+            </button>
+        </div>
+
+        <header>
+            <div class="main">
+                <a href="/">{{ config.title }}</a>
+            </div>
+
+            <nav class="nav">
+                {% for item in config.extra.menu %}
+                <a class="nav-item" href="{{ item.url }}">{{ item.name }}</a>
+                {% endfor %}
+            </nav>
+        </header>
+        <main>
+            {% block content %} {% endblock %}
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+    <script src="{{ get_url(path='js/script.js') }}"></script>
+    <noscript>
+        <style>
+            .dark-mode-buttons {
+                display: none;
+            }
+        </style>
+    </noscript>
+</body>
+</html>
+
+

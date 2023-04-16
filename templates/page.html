@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="page-subheader">
+        <a href="{{ current_path }}..">..</a>{{ current_path }}
+    </div>
+    <div class="page-header">
+        {{ page.title }}<span class="page-header-suffix">.</span>
+    </div>
+    <div class="page-subheader">
+        {{ page.date }}
+    </div>
+
+    {% if page.taxonomies and page.taxonomies.tags %}
+            <div class="post-tags">
+                {% for tag in page.taxonomies.tags %}
+                    <a class="tag hover" href={{ get_taxonomy_url(kind='tags', name=tag) | safe }}>{{ tag }}</a></li>
+                {% endfor %}
+            </div>
+    {% endif %}
+
+    {% if page.toc %}
+    <ul class="toc">
+    {% for h1 in page.toc %}
+        <li>
+            <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+            {% if h1.children %}
+                <ul>
+                    {% for h2 in h1.children %}
+                        <li>
+                            <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+                            {% if h2.children %}
+                                <ul>
+                                    {% for h3 in h2.children %}
+                                        <li>
+                                            <a href="{{ h3.permalink | safe }}">{{ h3.title }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+    {{ page.content | safe }}
+{% endblock %}

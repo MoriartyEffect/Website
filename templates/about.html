@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="page-subheader">
+        <a href="{{ current_path }}..">..</a>{{ current_path }}
+    </div>
+    <div class="page-header">
+        {{ page.title }}<span class="page-header-suffix">.</span>
+    </div>
+    <div class="page-subheader">
+        Who am I?
+    </div>
+
+    {% for social in config.extra.socials %}    
+        <a href="{{ social.url }}" class="social"><img src="social_icons/{{ social.icon }}.svg" alt="{{ social.name }}"></a>
+    {% endfor %} 
+
+    {{ page.content | safe }}
+{% endblock %}

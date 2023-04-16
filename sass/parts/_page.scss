@@ -1,0 +1,132 @@
+/* ////////////////////
+        Headings
+//////////////////// */
+h1::before {
+    content: "# ";
+}
+
+h2::before {
+    content: "## ";
+}
+
+h3::before {
+    content: "### ";
+}
+
+h4::before {
+    content: "#### ";
+}
+
+h5::before {
+    content: "##### ";
+}
+
+h6::before {
+    content: "###### ";
+}
+
+.toc {
+    line-height: .8em;
+}
+
+/* ////////////////////
+        Pre
+//////////////////// */
+code:not(pre code) {
+    background-color: black;
+    color: lightgrey;
+    padding: .3em .5em 0em .5em;
+    border-radius: var(--border-radius);
+}
+
+pre[class*="language-"] {
+    overflow: auto;
+    padding: 1em;
+    position: relative;
+    margin: 5px 0 ;
+    border-radius: var(--border-radius);
+}
+  
+pre[class*="language-"] button {
+    position: absolute;
+    top: .5em;
+    right: .5em;
+
+    color: var(--clr-fg);
+    background-color: var(--clr-ac);
+    font-weight: bold;
+    border: none;
+    padding: .5em .8em;
+    border-radius: var(--border-radius); 
+}
+
+pre[class*="language-"] button:active {
+    background-color: black;
+}
+
+/* ////////////////////
+        Table of content
+//////////////////// */
+ul {
+    padding: 1rem;
+}
+
+/* ////////////////////
+        Tags
+//////////////////// */
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .2em;
+}
+
+.tag {
+    background-color: black;
+    font-size: .8em;
+    padding: .5em .8em;
+    border-radius: var(--border-radius);
+
+    text-decoration: none;
+}
+
+/* ////////////////////
+        Tags
+//////////////////// */
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+table th {
+    padding: .4em .8em;
+    border: 1px solid var(--clr-fg); 
+}
+
+table td {
+    padding: .5em .8em;
+    border: 1px solid var(--clr-fg);
+}
+
+
+blockquote {
+    //border-left: 3px solid grey;
+    color: grey;
+    margin: 0;
+    padding-left: 1em;
+    line-height: 1em;
+}
+
+blockquote > p::before {
+    content: "❝ ";
+    font-size: 2em;
+}
+
+blockquote > p::after {
+    content: " ❠";
+    font-size: 2em;
+}
+
+img {
+    max-width: 100%;
+}
+    

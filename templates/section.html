@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="page-subheader">
+        <a href="{{ current_path }}..">..</a>{{ current_path }}
+    </div>
+
+    <div class="page-header">
+        {{ section.title }}<span class="page-header-suffix">.</span>
+    </div>
+    
+    <ul class="posts">
+    {% for page in paginator.pages %}
+    <li class="post-item">
+        <a class="post-title" href="{{ page.permalink}}">{{ page.title }}</a>
+        <span class="post-date">
+            {% if page.date %}
+                {{ page.date }}
+            {% endif %}
+        </span>
+        <div class="post-description">
+            {% if page.description %}
+                {{ page.description }}
+            {% elif page.summary %}
+                {{ page.summary | safe }}
+            {% else %}
+                {% set hide_read_more = true %}
+            {% endif %}
+        </div>
+    
+        {% if not hide_read_more %}
+        <a class="post-readmore" href={{ page.permalink }}>Read more</a>
+        {% endif %}
+    </li>
+    {% endfor %}
+    </ul>
+
+    <nav class="pagination">
+        {% if paginator.previous %}
+            <a class="previous" href="{{ paginator.previous }}">&#x25C0;</a>
+        {% else %}
+            <span class="previous">&#x25C0;</span>
+        {% endif %}
+
+        <span class="pagination-index">{{ paginator.current_index }}/{{ paginator.number_pagers }}</span>
+        
+        {% if paginator.next %}
+            <a class="next" href="{{ paginator.next }}">&#x25B6;</a>
+        {% else %}
+            <span class="next">&#x25B6;</span>
+        {% endif %}
+    </nav>
+{% endblock %}

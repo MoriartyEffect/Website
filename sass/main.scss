@@ -1,0 +1,88 @@
+@use "parts/header";
+@use "parts/title";
+@use "parts/posts";
+@use "parts/page";
+@use "parts/tags";
+@use "parts/theme";
+
+/*
+    Breadpoints
+
+    1200px
+    1024px
+    768px;
+    480px;
+*/
+
+:root {
+    --ff--initial: monospace;
+    --fs-initial: 1rem;
+    --border-radius: 2px;
+}
+
+html,
+body {
+    background: var(--clr-bg);
+    color: var(--clr-fg);
+    font-family: var(--ff--initial);
+    font-size: var(--fs-initial);
+    margin: 0; 
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+.dark-mode-buttons {
+    position: fixed;
+    top: .5rem;
+    right: .5rem;
+    cursor: pointer;
+
+    img {
+        width: 24px;
+    }
+}
+
+::-moz-selection {
+    background: var(--clr-ac);
+    color: var(--clr-fg);
+    text-shadow: none;
+}
+
+::selection {
+    background: var(--clr-ac);
+    color: var(--clr-fg);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 2rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--clr-ac);
+    font-weight: bold;
+}
+
+@media (min-width: 480px) {
+    body {
+        font-size: 1.125rem;
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        font-size: 1.25rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+
