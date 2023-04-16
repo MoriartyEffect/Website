@@ -11,9 +11,5 @@
         Who am I?
     </div>
 
-    {% for social in config.extra.socials %}    
-        <a href="{{ social.url }}" class="social"><img src="social_icons/{{ social.icon }}.svg" alt="{{ social.name }}"></a>
-    {% endfor %} 
-
     {{ page.content | safe }}
 {% endblock %}
